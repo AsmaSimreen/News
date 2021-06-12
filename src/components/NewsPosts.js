@@ -12,6 +12,7 @@ export default function NewsPosts({ posts }) {
                 {posts.map(post => (
                     <li key={post.id}>
                         <a href={post.url}>{post.title}</a>
+                        {/* <p><Comments></Comments></p> */}
                     </li>
                 ))}
             </ul>

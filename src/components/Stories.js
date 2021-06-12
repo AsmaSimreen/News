@@ -30,7 +30,7 @@ export default function Stories() {
     }, []);
 
     return (
-        <div className="App">
+        <div className="posts">
             <NewsPosts posts={posts} >
                 {/* NewsPosts */}
             </NewsPosts>
