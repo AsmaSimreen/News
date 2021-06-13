@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../App.css';
+import { Link } from 'react-router-dom';
+import Comments from './Comments';
 
 export default function NewsPosts({ posts }) {
     const [comments, setComments] = useState([]);
     // useEffect(() => {
-    const getNewsId = ((index) => {
+    const getNewsId = (async(index) => {
         try {
             const json = posts[index].kids;
             const promises = json.slice(0, 20).map(id =>
@@ -28,10 +30,15 @@ export default function NewsPosts({ posts }) {
                     {posts.map((post, index) => (
                         <li className="posts" key={post.id}>
                             <a href={post.url}>{post.title}</a>
-                            <button onClick={() => {
-                                getNewsId(index)
-                            }
-                            }>View Comments</button>
+                            <li>
+                                <Link to="/comments">
+                                    <button onClick={() => {
+                                        getNewsId(index)
+                                    }
+                                    }>View Comments</button>
+                                </Link>
+
+                            </li>
                         </li>
                     ))
                     }

@@ -4,7 +4,6 @@ import axios from 'axios';
 export default function Stories() {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
-
     useEffect(() => {
         async function getTopStories() {
             const url = `https://hacker-news.firebaseio.com/v0/topstories.json`;
@@ -30,7 +29,6 @@ export default function Stories() {
         }
         getTopStories();
     }, []);
-
     return (
         <>
             {loading ? (<h1>Loading....</h1>) : (
@@ -41,6 +39,5 @@ export default function Stories() {
                 </div>
             )}
         </>
-
     );
 }
