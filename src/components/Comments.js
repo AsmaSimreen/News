@@ -21,7 +21,7 @@ export default function Comments(props) {
         }
         showComments();
     })
-
+   
     return (
         <div className="comments">
             <ul>
