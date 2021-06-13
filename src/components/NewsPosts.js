@@ -5,7 +5,7 @@ import '../App.css';
 export default function NewsPosts({ posts }) {
     const [comments, setComments] = useState([]);
     // useEffect(() => {
-    const getNewsId = (async (index) => {
+    const getNewsId = ((index) => {
         try {
             const json = posts[index].kids;
             const promises = json.slice(0, 20).map(id =>
