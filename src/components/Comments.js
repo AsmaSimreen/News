@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function Comments({ posts }) {
+export default function Comments(props) {
     const [comments, setComments] = useState([]);
     useEffect(() => {
         async function showComments() {
-            const url = `https://hacker-news.firebaseio.com/v0/topstories.json`;
             try {
-                const response = await axios.get(url);
-                const json = response.data.kids;
+                const json = props.post.kids;
                 const promises = json.slice(0, 20).map(id =>
                     axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(
                         response => response.data
@@ -26,9 +24,14 @@ export default function Comments({ posts }) {
 
     return (
         <div className="comments">
-            <Comments posts={comments} >
-                {/* Comments */}
-            </Comments>
+            <ul>
+                {comments.map(comments => (
+                    <li className="comments" key={comments.id}>
+                        <p>{comments.text}</p>
+                    </li>
+                ))}
+            </ul>
+
         </div>
     )
 }

@@ -8,3 +8,7 @@
   list-style: none;
   font-size: x-large;
 }
+.comments{
+  color: grey;
+  text-shadow: darkslategrey;
+}

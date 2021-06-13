@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NewsPosts from './NewsPosts';
 import axios from 'axios';
-
 export default function Stories() {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
@@ -30,7 +29,7 @@ export default function Stories() {
     }, []);
 
     return (
-        <div className="posts">
+        <div>
             <NewsPosts posts={posts} >
                 {/* NewsPosts */}
             </NewsPosts>
