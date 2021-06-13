@@ -3,6 +3,8 @@ import NewsPosts from './NewsPosts';
 import axios from 'axios';
 export default function Stories() {
     const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         async function getTopStories() {
             const url = `https://hacker-news.firebaseio.com/v0/topstories.json`;
@@ -19,6 +21,7 @@ export default function Stories() {
                     );
                     const result = await Promise.all(promises);
                     setPosts(result);
+                    setLoading(false);
                 }
             }
             catch (err) {
@@ -29,10 +32,15 @@ export default function Stories() {
     }, []);
 
     return (
-        <div>
-            <NewsPosts posts={posts} >
-                {/* NewsPosts */}
-            </NewsPosts>
-        </div>
+        <>
+            {loading ? (<h1>Loading....</h1>) : (
+                <div>
+                    <NewsPosts posts={posts} >
+                        {/* NewsPosts */}
+                    </NewsPosts>
+                </div>
+            )}
+        </>
+
     );
 }
