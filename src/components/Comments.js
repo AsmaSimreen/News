@@ -8,7 +8,7 @@ export default function Comments(props) {
             try {
                 const json = props.post.kids;
                 const promises = json.slice(0, 20).map(id =>
-                    axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(
+                    axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`).then(
                         response => response.data
                     )
                 );
