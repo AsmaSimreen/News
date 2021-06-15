@@ -8,7 +8,7 @@ export default function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Stories} />
-          <Route path="/comments" component={Comments} />
+          <Route path="/comments/:id" component={Comments} />
         </Switch>
       </Router>
 
