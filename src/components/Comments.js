@@ -8,7 +8,6 @@ export default function Comments() {
     const [loading, setLoading] = useState(true);
     const [comments, setComments] = useState([]);
     useEffect(async () => {
-
         try {
 
             const json = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${params.id}.json?print=pretty`)
